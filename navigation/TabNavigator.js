@@ -2,10 +2,12 @@ import React from 'react';
 import Explore from '../screens/Explore';
 import Profile from '../screens/Profile';
 import Matches from '../screens/Matches';
+import ThriftShops from '../screens/ThriftShops';
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons'
 
 export default createMaterialTopTabNavigator({
+
   Profile: {
     screen: Profile,
     navigationOptions: {
@@ -22,6 +24,12 @@ export default createMaterialTopTabNavigator({
     screen: Matches,
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (<Icon name="ios-shirt" color={tintColor} size={24}></Icon>)
+    }
+  },
+  ThriftShops: {
+    screen: ThriftShops,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => (<Icon name="ios-flower" color={tintColor} size={24}></Icon>)
     }
   }
 }, {

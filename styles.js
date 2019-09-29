@@ -11,9 +11,7 @@ let styles = StyleSheet.create({
   },
   profileContainer: {
     flex: 1,
-    backgroundColor: '#e1ede1',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center'
   },
   loginImageContainer: {
     flex: 1,
@@ -26,6 +24,11 @@ let styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 40,
     fontFamily: 'Georgia',
+  },
+  profileTextContainer: {
+    fontFamily: 'Georgia',
+    textAlign: 'center',
+    fontSize: 16
   },
   loginInput: {
     width: WIDTH - 50,
