@@ -1,5 +1,9 @@
 let initialState = {
-  user: ''
+  user: {
+    id: '',
+    name: '',
+    bio: ''
+  }
 }
 
 export default function (state = initialState, action) {

@@ -4,8 +4,11 @@ import { ImageBackground, Text, View, TextInput, Button, Alert } from 'react-nat
 import img from '../Images/clothing.jpeg'
 import Icon from 'react-native-vector-icons/Ionicons';
 import * as Facebook from 'expo-facebook';
+import { connect } from 'react-redux'
+import { login } from '../store/actions'
+import * as firebase from 'firebase'
 
-async function logIn() {
+async function facebooklogIn() {
   try {
     const {
       type,
@@ -28,7 +31,9 @@ async function logIn() {
   }
 }
 
-export default class Login extends Component {
+export default class userLogin extends Component {
+
+
   render() {
     return (
       <ImageBackground source={img} style={styles.loginImageContainer} opacity={.65}>
@@ -45,11 +50,12 @@ export default class Login extends Component {
           <Button title={'Login'} />
           <Button title={'Sign Up'} />
           <Button onPress={() => {
-            logIn();
+            facebooklogIn();
           }} title={'Connect with Facebook'} />
         </View>
       </ImageBackground>
     )
   }
 }
+
 
