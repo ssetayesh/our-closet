@@ -9,7 +9,7 @@ export default createMaterialTopTabNavigator({
   Profile: {
     screen: Profile,
     navigationOptions: {
-      tabBarIcon: ({ tintColor }) => (<Icon name="ios-flower" color={tintColor} size={24}></Icon>)
+      tabBarIcon: ({ tintColor }) => (<Icon name="ios-person" color={tintColor} size={24}></Icon>)
     }
   },
   Explore: {

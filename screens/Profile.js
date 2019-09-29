@@ -12,7 +12,7 @@ class Profile extends React.Component {
     console.log('in profileeeee', this.props)
     return (
       <View style={styles.container}>
-        <Text>Profile page </Text>
+        <Text>Hello {this.props.user.name}</Text>
       </View>
     )
   }
