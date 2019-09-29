@@ -9,6 +9,7 @@ import { login } from '../store/actions'
 import * as firebase from 'firebase'
 import RootNavigator from '../navigation/RootNavigator';
 
+
 class userLogin extends Component {
   constructor(props) {
     super(props);
@@ -21,11 +22,10 @@ class userLogin extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user !== null) {
-        this.props.dispatch(login())
+        this.props.dispatch(login(user))
         console.log('i am heree');
         console.log("userrrrrr " + JSON.stringify(user));
       }
-
     });
   }
 
@@ -93,7 +93,7 @@ class userLogin extends Component {
           <Text style={styles.innerText}>A Community for Thrifting{"\n"}</Text>
           <View >
             <Icon name={'ios-person'} size={28} style={styles.usernameIcon} />
-            <TextInput style={styles.loginInput} placeholder={'username'} placeholderTextColor={'black'} onChangeText={(email) => this.setState({ email })} />
+            <TextInput style={styles.loginInput} placeholder={'email'} placeholderTextColor={'black'} onChangeText={(email) => this.setState({ email })} />
             <Text></Text>
             <Icon name={'ios-lock'} size={28} style={styles.passwordIcon} />
             <TextInput style={styles.loginInput} secureTextEntry={true} password={true} placeholder={'password'} placeholderTextColor={'black'} onChangeText={(password) => this.setState({ password })} />

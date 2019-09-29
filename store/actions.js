@@ -14,10 +14,11 @@ const getLogot = () => {
   return { type: LOGOUT, loggedIn: false }
 }
 
+
 /*dispatch*/
-export const login = () => {
-  return (dispatch) => {
-    dispatch(getLogin())
+export const login = (user) => {
+  return function (dispatch) {
+    console.log('user in dispatch', user);
+    dispatch(getLogin(user))
   }
 }
-

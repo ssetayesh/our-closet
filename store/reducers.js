@@ -1,3 +1,5 @@
+import * as firebase from 'firebase';
+
 let initialState = {
   loggedIn: false,
   user: {
