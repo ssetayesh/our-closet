@@ -20,11 +20,12 @@ const getLogot = () => {
 export function login(user) {
   return function (dispatch) {
     console.log('user in dispatch', user);
-    console.log('name', user.providerData[0].displayName)
+    console.log('provider data!!!', user.providerData[0])
 
     let userToDispatch = {
       name: user.providerData[0].displayName,
-      bio: ''
+      bio: '',
+      photoURL: user.providerData[0].photoURL
     }
     firebase.database().ref('users/').child(user.uid).once('value', function (snapshot) {
       if (snapshot.val() !== null) {
@@ -36,7 +37,7 @@ export function login(user) {
       else {
         firebase.database().ref('users/' + user.uid).update(userToDispatch);
         console.log('here in else in actionss')
-        dispatch({ type: LOGIN, user: user, loggedIn: true })
+        dispatch({ type: LOGIN, user: userToDispatch, loggedIn: true })
       }
     })
   }
