@@ -104,7 +104,7 @@ class userLogin extends Component {
             <Button title={'Sign Up'} onPress={() => this.signUpWithEmail(this.state.email, this.state.password)} />
             <Button onPress={() => {
               this.facebookWithlogIn();
-            }} title={'Connect with Facebook'} />
+            }} title={'Login with Facebook'} />
           </View>
         </ImageBackground>
       )
