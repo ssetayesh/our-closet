@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "stackathon1",
+    "slug": "stackathon1",
+    "privacy": "public",
+    "sdkVersion": "35.0.0",
+    "facebookDisplayName": "Our Closet",
+    "facebookScheme": "fb3303373173021033",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
