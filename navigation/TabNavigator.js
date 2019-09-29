@@ -18,7 +18,7 @@ export default createMaterialTopTabNavigator({
       tabBarIcon: ({ tintColor }) => (<Icon name="ios-search" color={tintColor} size={24}></Icon>)
     }
   },
-  Outfits: {
+  Matches: {
     screen: Matches,
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (<Icon name="ios-shirt" color={tintColor} size={24}></Icon>)
