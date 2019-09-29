@@ -9,6 +9,12 @@ let styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  profileContainer: {
+    flex: 1,
+    backgroundColor: '#babdb9',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   loginImageContainer: {
     flex: 1,
     width: null,

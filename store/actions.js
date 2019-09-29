@@ -11,7 +11,7 @@ const getLogin = (user) => {
   return { type: LOGIN, user: user, loggedIn: true }
 }
 
-const getLogot = () => {
+const getLogout = () => {
   return { type: LOGOUT, loggedIn: false }
 }
 
@@ -32,13 +32,20 @@ export function login(user) {
         let userInfo = snapshot.val();
         console.log('here in snapshot.val() != null')
         console.log('user from database', userInfo)
-        dispatch({ type: LOGIN, user: userInfo, loggedIn: true })
+        dispatch(getLogin(userInfo))
       }
       else {
         firebase.database().ref('users/' + user.uid).update(userToDispatch);
         console.log('here in else in actionss')
-        dispatch({ type: LOGIN, user: userToDispatch, loggedIn: true })
+        dispatch(getLogin(userToDispatch))
       }
     })
+  }
+}
+
+export function logout() {
+  return function (dispatch) {
+    firebase.auth().signOut();
+    dispatch(getLogout())
   }
 }
