@@ -10,8 +10,13 @@ import * as firebase from 'firebase'
 import RootNavigator from '../navigation/RootNavigator';
 
 class userLogin extends Component {
-
-  state = {}
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+    }
+  }
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
@@ -23,9 +28,13 @@ class userLogin extends Component {
     });
   }
 
-  loginWithEmail = async () => {
-
+  signUpWithEmail = (email, password) => {
+    firebase.auth().createUserWithEmailAndPassword(email, password);
   }
+
+  // loginWithEmail = (email, password) => {
+
+  // }
 
   facebookWithlogIn = async () => {
     try {
@@ -54,6 +63,7 @@ class userLogin extends Component {
     }
   }
   render() {
+    console.log(this.state);
     console.log('propssss', this.props)
     console.log('logged in ????', this.props.loggedIn)
     if (this.props.loggedIn) {
@@ -68,14 +78,14 @@ class userLogin extends Component {
           <Text style={styles.innerText}>A Community for Thrifting{"\n"}</Text>
           <View >
             <Icon name={'ios-person'} size={28} style={styles.usernameIcon} />
-            <TextInput style={styles.loginInput} placeholder={'username'} placeholderTextColor={'black'} />
+            <TextInput style={styles.loginInput} placeholder={'username'} placeholderTextColor={'black'} onChangeText={(email) => this.setState({ email })} />
             <Text></Text>
             <Icon name={'ios-lock'} size={28} style={styles.passwordIcon} />
-            <TextInput style={styles.loginInput} secureTextEntry={true} password={true} placeholder={'password'} placeholderTextColor={'black'} />
+            <TextInput style={styles.loginInput} secureTextEntry={true} password={true} placeholder={'password'} placeholderTextColor={'black'} onChangeText={(password) => this.setState({ password })} />
           </View>
           <View>
             <Button title={'Login'} />
-            <Button title={'Sign Up'} />
+            <Button title={'Sign Up'} onPress={() => this.signUpWithEmail(this.state.email, this.state.password)} />
             <Button onPress={() => {
               this.facebookWithlogIn();
             }} title={'Connect with Facebook'} />
