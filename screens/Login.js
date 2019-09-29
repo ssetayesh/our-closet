@@ -12,12 +12,13 @@ import RootNavigator from '../navigation/RootNavigator';
 
 class userLogin extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       email: '',
-      password: '',
+      password: ''
     }
   }
+
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
