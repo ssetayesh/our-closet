@@ -10,7 +10,7 @@ class Matches extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>clothes match page</Text>
+        <Text>Swap Clothing</Text>
       </View>
     )
   }

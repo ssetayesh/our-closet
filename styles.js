@@ -11,9 +11,9 @@ let styles = StyleSheet.create({
   },
   profileContainer: {
     flex: 1,
-    backgroundColor: '#babdb9',
+    backgroundColor: '#e1ede1',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   loginImageContainer: {
     flex: 1,

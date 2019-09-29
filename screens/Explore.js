@@ -14,7 +14,7 @@ class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Home Page aka Explore </Text>
+        <Text>Explore Clothing! </Text>
       </View>
     )
   }

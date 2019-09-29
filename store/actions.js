@@ -15,7 +15,6 @@ const getLogout = () => {
   return { type: LOGOUT, loggedIn: false }
 }
 
-
 /*dispatch*/
 export function login(user) {
   return function (dispatch) {
