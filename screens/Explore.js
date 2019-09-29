@@ -7,8 +7,8 @@ import { login } from '../store/actions';
 class Home extends React.Component {
   state = {}
 
-  componentWillMount() {
-    this.props.dispatch(login(''));
+  componentDidMount() {
+
   }
 
   render() {

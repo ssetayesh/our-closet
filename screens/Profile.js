@@ -5,7 +5,7 @@ import styles from '../styles';
 class Profile extends React.Component {
   state = {}
 
-  componentWillMount() { }
+  componentDidMount() { }
 
   render() {
     return (

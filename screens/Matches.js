@@ -5,7 +5,7 @@ import { Text, View } from 'react-native';
 class Matches extends React.Component {
   state = {}
 
-  componentWillMount() { }
+  componentDidMount() { }
 
   render() {
     return (

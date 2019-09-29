@@ -7,55 +7,90 @@ import * as Facebook from 'expo-facebook';
 import { connect } from 'react-redux'
 import { login } from '../store/actions'
 import * as firebase from 'firebase'
+import RootNavigator from '../navigation/RootNavigator';
 
-async function facebooklogIn() {
-  try {
-    const {
-      type,
-      token,
-      expires,
-      permissions,
-      declinedPermissions,
-    } = await Facebook.logInWithReadPermissionsAsync('3303373173021033', {
-      permissions: ['public_profile'],
+class userLogin extends Component {
+
+  state = {}
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user !== null) {
+        this.props.dispatch(login())
+        console.log('i am heree');
+        console.log("userrrrrr " + JSON.stringify(user));
+      }
     });
-    if (type === 'success') {
-      // Get the user's name using Facebook's Graph API
-      const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
-      Alert.alert('Logged In!', `Hi ${(await response.json()).name}!`);
-    } else {
-      // type === 'cancel'
+  }
+
+  loginWithEmail = async () => {
+
+  }
+
+  facebookWithlogIn = async () => {
+    try {
+      const {
+        type,
+        token,
+        expires,
+        permissions,
+        declinedPermissions,
+      } = await Facebook.logInWithReadPermissionsAsync('3303373173021033', {
+        permissions: ['public_profile'],
+      });
+      if (type === 'success') {
+        const credential = await firebase.auth.FacebookAuthProvider.credential(token);
+        firebase.auth().signInWithCredential(credential).catch((err) => {
+          Alert.alert('Something went wrong on our end, try again later')
+        })
+        // Get the user's name using Facebook's Graph API
+        const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
+        Alert.alert('Logged In!', `Hi ${(await response.json()).name}!`);
+      } else {
+        // type === 'cancel'
+      }
+    } catch ({ message }) {
+      alert(`Facebook Login Error: ${message}`);
     }
-  } catch ({ message }) {
-    alert(`Facebook Login Error: ${message}`);
   }
-}
-
-export default class userLogin extends Component {
-
-
   render() {
-    return (
-      <ImageBackground source={img} style={styles.loginImageContainer} opacity={.65}>
-        <Text style={styles.ourClosetText}>Our {"\n"}Closet</Text>
-        <Text style={styles.innerText}>A Community for Thrifting{"\n"}</Text>
-        <View >
-          <Icon name={'ios-person'} size={28} style={styles.usernameIcon} />
-          <TextInput style={styles.loginInput} placeholder={'username'} placeholderTextColor={'black'} />
-          <Text></Text>
-          <Icon name={'ios-lock'} size={28} style={styles.passwordIcon} />
-          <TextInput style={styles.loginInput} secureTextEntry={true} password={true} placeholder={'password'} placeholderTextColor={'black'} />
-        </View>
-        <View>
-          <Button title={'Login'} />
-          <Button title={'Sign Up'} />
-          <Button onPress={() => {
-            facebooklogIn();
-          }} title={'Connect with Facebook'} />
-        </View>
-      </ImageBackground>
-    )
+    console.log('propssss', this.props)
+    console.log('logged in ????', this.props.loggedIn)
+    if (this.props.loggedIn) {
+      return (
+        <RootNavigator />
+      )
+    }
+    else {
+      return (
+        <ImageBackground source={img} style={styles.loginImageContainer} opacity={.65}>
+          <Text style={styles.ourClosetText}>Our {"\n"}Closet</Text>
+          <Text style={styles.innerText}>A Community for Thrifting{"\n"}</Text>
+          <View >
+            <Icon name={'ios-person'} size={28} style={styles.usernameIcon} />
+            <TextInput style={styles.loginInput} placeholder={'username'} placeholderTextColor={'black'} />
+            <Text></Text>
+            <Icon name={'ios-lock'} size={28} style={styles.passwordIcon} />
+            <TextInput style={styles.loginInput} secureTextEntry={true} password={true} placeholder={'password'} placeholderTextColor={'black'} />
+          </View>
+          <View>
+            <Button title={'Login'} />
+            <Button title={'Sign Up'} />
+            <Button onPress={() => {
+              this.facebookWithlogIn();
+            }} title={'Connect with Facebook'} />
+          </View>
+        </ImageBackground>
+      )
+    }
   }
 }
 
 
+function mapStateToProps(state) {
+  return {
+    loggedIn: state.loggedIn
+  }
+}
+
+export default connect(mapStateToProps)(userLogin);

@@ -7,9 +7,6 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { FirebaseWrapper } from './firebase/firebase';
 import { firebaseConfig } from './firebase/config'
-
-
-
 const middleware = applyMiddleware(thunkMiddleware);
 const store = createStore(reducers, middleware);
 
@@ -19,7 +16,7 @@ export default function App() {
   return (
     // <Login></Login>
     <Provider store={store}>
-      <RootNavigator />
+      <Login />
     </Provider>
   );
 }
