@@ -29,7 +29,7 @@ export default createMaterialTopTabNavigator({
   ThriftShops: {
     screen: ThriftShops,
     navigationOptions: {
-      tabBarIcon: ({ tintColor }) => (<Icon name="ios-flower" color={tintColor} size={24}></Icon>)
+      tabBarIcon: ({ tintColor }) => (<Icon name="ios-leaf" color={tintColor} size={24}></Icon>)
     }
   }
 }, {
