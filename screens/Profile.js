@@ -17,7 +17,8 @@ class Profile extends React.Component {
         <Image style={{ width: 200, height: 200 }} source={{ uri: this.props.user.photoURL }} />
         <Text>{"\n"}</Text>
         <Text style={styles.profileTextContainer}>Let's recycle together! {"\n"}What clothes do you want to put in your closet?{"\n"}</Text>
-        <Button onPress={() => this.props.dispatch(logout())} title={'Logout'}></Button>
+        <Button title={'Upload Clothing'} />
+        <Button onPress={() => this.props.dispatch(logout())} title={'Logout'} />
       </View >
     )
   }
