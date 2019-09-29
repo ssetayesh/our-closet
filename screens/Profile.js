@@ -5,12 +5,40 @@ import { connect } from 'react-redux';
 import { logout } from '../store/actions'
 //import ImagePicker from 'react-native-image-picker'
 // import CameraRollPicker from 'react-native-camera-roll'
+import * as ImagePicker from 'expo-image-picker'
+import * as Permissions from 'expo-permissions'
+import Constants from 'expo-constants'
 
 class Profile extends React.Component {
-  state = {}
+  state = {
+    photos: null,
+  }
 
-  uploadPhoto = () => {
-    Alert.alert('Out of Order');
+  componentDidMount() {
+    this.getPermissionAsync();
+  }
+
+  getPermissionAsync = async () => {
+    if (Constants.platform.ios) {
+      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+      if (status !== 'granted') {
+        alert('We do not have permissions to access your camera roll');
+      }
+    }
+  }
+
+  pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      this.setState({ photos: result.uri });
+    }
   }
 
   render() {
@@ -21,8 +49,8 @@ class Profile extends React.Component {
         <Text>{"\n"}</Text>
         <Image style={{ width: 200, height: 200, borderRadius: 200 / 2 }} source={{ uri: this.props.user.photoURL }} />
         <Text>{"\n"}</Text>
-        <Text style={styles.profileTextContainer}>Let's recycle together! {"\n"}What clothes do you want to put in your closet?{"\n"}</Text>
-        <Button title={'Upload Clothing'} onPress={() => this.uploadPhoto()} />
+        <Text style={styles.profileTextContainer}>Let's recycle together! {"\n"}What clothes do you want to put in your closet?</Text>
+        <Button title={'Upload Clothing'} onPress={() => this.pickImage()} />
         <Button onPress={() => this.props.dispatch(logout())} title={'Logout'} />
       </View >
     )

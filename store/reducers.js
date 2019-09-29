@@ -4,7 +4,7 @@ let initialState = {
   loggedIn: false,
   user: {
     name: '',
-    photoURL: '',
+    photoURL: ''
   }
 }
 
