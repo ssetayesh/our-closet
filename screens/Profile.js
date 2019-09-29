@@ -3,8 +3,6 @@ import { Text, View, Image, Button, Alert } from 'react-native';
 import styles from '../styles';
 import { connect } from 'react-redux';
 import { logout } from '../store/actions'
-//import ImagePicker from 'react-native-image-picker'
-// import CameraRollPicker from 'react-native-camera-roll'
 import * as ImagePicker from 'expo-image-picker'
 import * as Permissions from 'expo-permissions'
 import Constants from 'expo-constants'
