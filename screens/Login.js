@@ -25,16 +25,31 @@ class userLogin extends Component {
         console.log('i am heree');
         console.log("userrrrrr " + JSON.stringify(user));
       }
+
     });
   }
 
   signUpWithEmail = (email, password) => {
+    try {
+      if (this.state.password.length < 6) {
+        Alert.alert('Password must be at least 6 characters long')
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
     firebase.auth().createUserWithEmailAndPassword(email, password);
   }
 
-  // loginWithEmail = (email, password) => {
-
-  // }
+  loginWithEmail = (email, password) => {
+    try {
+      firebase.auth().signInWithEmailAndPassword(email, password).then(function (user) {
+        console.log(user);
+      })
+    } catch (err) {
+      Alert.alert('User or password is incorrect');
+    }
+  }
 
   facebookWithlogIn = async () => {
     try {
@@ -84,7 +99,7 @@ class userLogin extends Component {
             <TextInput style={styles.loginInput} secureTextEntry={true} password={true} placeholder={'password'} placeholderTextColor={'black'} onChangeText={(password) => this.setState({ password })} />
           </View>
           <View>
-            <Button title={'Login'} />
+            <Button title={'Login'} onPress={() => this.loginWithEmail(this.state.email, this.state.password)} />
             <Button title={'Sign Up'} onPress={() => this.signUpWithEmail(this.state.email, this.state.password)} />
             <Button onPress={() => {
               this.facebookWithlogIn();
