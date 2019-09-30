@@ -2,7 +2,8 @@ import * as firebase from 'firebase'
 
 /*Action types */
 const LOGIN = 'LOGIN';
-const LOGOUT = 'LOGOUT'
+const LOGOUT = 'LOGOUT';
+const UPLOAD_PICS = 'UPLOAD_PICS';
 
 
 /*Action creators*/
@@ -15,6 +16,7 @@ const getLogout = () => {
 }
 
 
+
 export function login(user) {
   return function (dispatch) {
     console.log('user in dispatch', user);
@@ -22,7 +24,8 @@ export function login(user) {
 
     let userToDispatch = {
       name: user.providerData[0].displayName,
-      photoURL: user.providerData[0].photoURL
+      photoURL: user.providerData[0].photoURL,
+      images: []
     }
 
     firebase.database().ref('users/').child(user.uid).once('value', function (snapshot) {
