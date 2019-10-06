@@ -1,19 +1,18 @@
 import React from 'react';
-import { Text, View, Image, Button, Alert } from 'react-native';
+import { Text, View, Image, Button, TouchableOpacity, ScrollView } from 'react-native';
 import styles from '../styles';
 import { connect } from 'react-redux';
 import { logout } from '../store/actions'
 import * as ImagePicker from 'expo-image-picker'
 import * as Permissions from 'expo-permissions'
+import { uploadImages } from '../store/actions'
 import Constants from 'expo-constants'
 
 class Profile extends React.Component {
-  state = {
-    photos: null,
-  }
-
+  state = {}
   componentDidMount() {
     this.getPermissionAsync();
+    this.props.dispatch(uploadImages(this.props.user.images))
   }
 
   getPermissionAsync = async () => {
@@ -25,32 +24,42 @@ class Profile extends React.Component {
     }
   }
 
-  pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      aspect: [4, 3],
-    });
+  // pickImage = async () => {
+  //   let result = await ImagePicker.launchImageLibraryAsync({
+  //     mediaTypes: ImagePicker.MediaTypeOptions.All,
+  //     allowsEditing: true,
+  //     aspect: [4, 3],
+  //   });
 
-    if (!result.cancelled) {
-      this.setState({ photos: result.uri });
-    }
-  }
+  //   if (!result.cancelled) {
+  //     this.setState({ photos: result.uri });
+  //   }
+  // }
 
   render() {
     console.log('in profileeeee', this.props)
     return (
-      <View style={styles.profileContainer}>
-        <Text style={{ fontFamily: 'Georgia', fontSize: 16 }}>{"\n"}Welcome {this.props.user.name}!</Text>
-        <Text>{"\n"}</Text>
-        <Image style={{ width: 200, height: 200, borderRadius: 200 / 2 }} source={{ uri: this.props.user.photoURL }} />
-        <Text>{"\n"}</Text>
-        <Text style={styles.profileTextContainer}>Let's recycle together! {"\n"}What clothes do you want to put in your closet?</Text>
-        <Text>{"\n"}Your current closet:{"\n"}</Text>
-        <Button title={'Upload Clothing'} onPress={() => this.pickImage()} />
-        <Text>{"\n"}</Text>
-        <Button onPress={() => this.props.dispatch(logout())} title={'Logout'} />
-      </View >
+      <ScrollView>
+        <View style={styles.profileContainer}>
+          <Text style={{ fontFamily: 'Georgia', fontSize: 16 }}>{"\n"}Welcome {this.props.user.name}!</Text>
+          <Text>{"\n"}</Text>
+          <Image style={{ width: 200, height: 200, borderRadius: 200 / 2 }} source={{ uri: this.props.user.photoURL }} />
+          <Text>{"\n"}</Text>
+          <Text style={styles.profileTextContainer}>Let's recycle together! {"\n"}What clothes do you want to put in your closet?</Text>
+          <Text>{"\n"}Your current closet:{"\n"}</Text>
+          {/* <Button title={'Upload Clothing'} onPress={() => this.pickImage()} /> */}
+          <Text>{"\n"}</Text>
+          {this.props.user.images.map((uri, key) => {
+            return (
+              <TouchableOpacity key={{ key }} >
+                <Image style={{ width: 100, height: 100, borderRadius: 100 / 2 }} source={{ uri: uri }} />
+              </TouchableOpacity>
+            );
+          })}
+          <Button onPress={() => this.props.dispatch(logout())} title={'Logout'} />
+          <Text>{"\n"}</Text>
+        </View >
+      </ScrollView>
     )
   }
 }

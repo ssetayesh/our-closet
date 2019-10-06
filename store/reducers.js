@@ -17,6 +17,9 @@ export default function (state = initialState, action) {
     case 'LOGOUT': {
       return { ...state, loggedIn: false }
     }
+    case 'UPLOAD_IMAGES': {
+      return { ...state, user: { ...state.user, images: action.payload } }
+    }
     default:
       return state;
   }

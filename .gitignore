@@ -1,4 +1,5 @@
 firebase/config.js
+firebase/aws.js
 node_modules/**/*
 .expo/*
 npm-debug.*
