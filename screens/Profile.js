@@ -3,7 +3,6 @@ import { Text, View, Image, Button, TouchableOpacity, ScrollView } from 'react-n
 import styles from '../styles';
 import { connect } from 'react-redux';
 import { logout } from '../store/actions'
-import * as ImagePicker from 'expo-image-picker'
 import * as Permissions from 'expo-permissions'
 import { uploadImages } from '../store/actions'
 import Constants from 'expo-constants'
@@ -23,18 +22,6 @@ class Profile extends React.Component {
       }
     }
   }
-
-  // pickImage = async () => {
-  //   let result = await ImagePicker.launchImageLibraryAsync({
-  //     mediaTypes: ImagePicker.MediaTypeOptions.All,
-  //     allowsEditing: true,
-  //     aspect: [4, 3],
-  //   });
-
-  //   if (!result.cancelled) {
-  //     this.setState({ photos: result.uri });
-  //   }
-  // }
 
   render() {
     console.log('in profileeeee', this.props)

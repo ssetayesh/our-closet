@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import { login } from '../store/actions'
 import * as firebase from 'firebase'
 import RootNavigator from '../navigation/RootNavigator';
-
+import { SocialIcon } from 'react-native-elements'
 
 class userLogin extends Component {
   constructor(props) {
@@ -19,13 +19,10 @@ class userLogin extends Component {
     }
   }
 
-
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user !== null) {
         this.props.dispatch(login(user))
-        console.log('i am heree');
-        console.log("userrrrrr " + JSON.stringify(user));
       }
     });
   }
@@ -100,11 +97,16 @@ class userLogin extends Component {
             <TextInput style={styles.loginInput} secureTextEntry={true} password={true} placeholder={'password'} placeholderTextColor={'black'} onChangeText={(password) => this.setState({ password })} />
           </View>
           <View>
+
             <Button title={'Login'} onPress={() => this.loginWithEmail(this.state.email, this.state.password)} />
+
             <Button title={'Sign Up'} onPress={() => this.signUpWithEmail(this.state.email, this.state.password)} />
+
             <Button onPress={() => {
               this.facebookWithlogIn();
             }} title={'Login with Facebook'} />
+
+
           </View>
         </ImageBackground>
       )
