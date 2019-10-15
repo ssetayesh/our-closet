@@ -1,7 +1,7 @@
 
 <h1 align="center">
 <br align="center">
-  <img src = "#" width=200/>
+  <img src = "https://cdn.pixabay.com/photo/2014/03/25/16/25/gerbera-297021_960_720.png" width=200/>
   <br>
   Our Closet
 </h1>
