@@ -4,7 +4,6 @@
   <img src = "#" width=200/>
    <br>
   Our Closet
-  <br>
 </h1>
 
 <h4 align="center">A Community for Thrifting App</h4>
