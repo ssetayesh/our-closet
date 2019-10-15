@@ -2,7 +2,6 @@
 <h1 align="center">
 <br align="center">
   <img src = "#" width=200/>
-   <br>
   Our Closet
 </h1>
 
