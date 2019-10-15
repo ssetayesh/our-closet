@@ -8,11 +8,11 @@
 
 <h4 align="center">A Community for Thrifting App</h4>
 <p align="center">
-  Recycle - Meet New People - Build with React-Native
+  Recycle - Meet New People - Build with React Native
 </p>
 
 ## Technologies
-Node.js, React, React-Native, Redux, React-Redux, AWS S3, Firebase 
+Node.js, React, React Native, Redux, React-Redux, AWS S3, Firebase 
 
 ## About
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
