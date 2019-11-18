@@ -14,6 +14,6 @@
 JavaScript, Node.js, React, Redux, React Native, Firebase, AWS S3, Facebook OAuth
 
 ## About
-Register to swap clothing with other users, reduce waste, and meet new people!
+Register to swap clothing with other users, reduce waste, and chat with new people!
 
 
