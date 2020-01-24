@@ -43,8 +43,11 @@ class Profile extends React.Component {
               </TouchableOpacity>
             );
           })}
+          <Text>{"\n"}</Text>
+          <Button title={"Upload Clothing"}></Button>
           <Button onPress={() => this.props.dispatch(logout())} title={'Logout'} />
           <Text>{"\n"}</Text>
+
         </View >
       </ScrollView>
     )

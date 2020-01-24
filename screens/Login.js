@@ -75,6 +75,7 @@ class userLogin extends Component {
       alert(`Facebook Login Error: ${message}`);
     }
   }
+
   render() {
     console.log(this.state);
     console.log('propssss', this.props)
@@ -101,7 +102,6 @@ class userLogin extends Component {
             <Button title={'Login'} onPress={() => this.loginWithEmail(this.state.email, this.state.password)} />
 
             <Button title={'Sign Up'} onPress={() => this.signUpWithEmail(this.state.email, this.state.password)} />
-
             <Button onPress={() => {
               this.facebookWithlogIn();
             }} title={'Login with Facebook'} />
