@@ -10,7 +10,7 @@
   Recycle - Meet New People - Built with React Native
   <br>
   <br>
-   <img src="https://i.ibb.co/n8FNqKW/ourclosetscreenshots.jpg"/>
+   <img src="https://i.ibb.co/n8FNqKW/ourclosetscreenshots.jpg" width="900"/>
 </p>
 
 ## Technologies
