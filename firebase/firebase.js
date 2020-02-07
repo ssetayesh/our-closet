@@ -27,6 +27,4 @@ export class FirebaseWrapper {
     }
     return this._firebaseWrapperInstance;
   }
-
-
 }

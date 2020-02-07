@@ -62,6 +62,21 @@ let styles = StyleSheet.create({
     fontFamily: 'Georgia',
     fontSize: 15,
     fontStyle: 'italic'
+  },
+  center: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center'
+  },
+  circle: {
+    width: 100,
+    height: 100,
+    borderRadius: 100 / 2
+  },
+  imgRow: {
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    padding: 15,
   }
 })
 

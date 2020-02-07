@@ -3,6 +3,7 @@ import * as ImagePicker from 'expo-image-picker'
 import { RNS3 } from 'react-native-aws3';
 let aws = require('../firebase/aws');
 let awsData = aws.awsData();
+import { Alert } from 'react-native';
 
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
@@ -48,6 +49,27 @@ export function logout() {
   return function (dispatch) {
     firebase.auth().signOut();
     dispatch(getLogout())
+  }
+}
+
+export function deleteImage(images, key) {
+  return function (dispatch) {
+    Alert.alert(
+      'Are you sure you want to Delete?',
+      '',
+      [
+        {
+          text: 'Yes', onPress: () => {
+            var array = images
+            array.splice(key, 1)
+            dispatch({ type: 'UPLOAD_IMAGES', payload: array });
+            firebase.database().ref('cards/' + firebase.auth().currentUser.uid + '/images').set(array);
+          }
+        },
+        { text: 'Cancel', onPress: () => console.log('Cancel Pressed') },
+      ],
+      { cancelable: true }
+    )
   }
 }
 
