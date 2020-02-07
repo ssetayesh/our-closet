@@ -9,12 +9,10 @@
 <p align="center">
   Recycle - Meet New People - Built with React Native
   <br>
-  <br>
-   <img src="https://i.ibb.co/n8FNqKW/ourclosetscreenshots.jpg" width="900"/>
 </p>
 
 ## Technologies
-JavaScript, Node.js, React, Redux, React Native, Firebase, AWS S3, Facebook OAuth
+JavaScript, Node.js, React, React Native, Redux, Firebase, AWS S3, Facebook OAuth
 
 ## About
 Register and start uploading images of your clothing to your virutal closet. Go browse through other users clothes in their virtual closest, choose to like an outfit and then begin to chat and swap clothing with other users! Help reduce waste and meet new people!
