@@ -2,7 +2,7 @@
 <h1 align="center">
     <img src="https://i.ibb.co/bR9j8DB/homepage.png" height="650"/>
   <br>
-  Our Closet
+    <i>Our Closet</i>
 </h1>
 
 <h4 align="center">A Community for Thrifting App</h4>
