@@ -2,7 +2,7 @@ import React from 'react';
 import Explore from '../screens/Explore';
 import Profile from '../screens/Profile';
 import Matches from '../screens/Matches';
-import ThriftShops from '../screens/ThriftShops';
+import Chat from '../screens/Chat';
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons'
 
@@ -26,8 +26,8 @@ export default createMaterialTopTabNavigator({
       tabBarIcon: ({ tintColor }) => (<Icon name="ios-shirt" color={tintColor} size={24}></Icon>)
     }
   },
-  ThriftShops: {
-    screen: ThriftShops,
+  Chat: {
+    screen: Chat,
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (<Icon name="ios-leaf" color={tintColor} size={24}></Icon>)
     }

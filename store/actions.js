@@ -26,7 +26,8 @@ export function login(user) {
     let userToDispatch = {
       name: user.providerData[0].displayName,
       photoURL: user.providerData[0].photoURL,
-      images: [user.photoURL]
+      images: [user.photoURL],
+      // chats: '',
     }
 
     firebase.database().ref('users/').child(user.uid).once('value', function (snapshot) {
@@ -72,6 +73,29 @@ export function deleteImage(images, key) {
     )
   }
 }
+
+// export function sendNotification(id, name, text) {
+//   return function (dispatch) {
+//     firebase.database().ref('cards/' + id).once('value', (snap) => {
+//       if (snap.val().token != null) {
+
+//         return fetch('https://exp.host/--/api/v2/push/send', {
+//           method: 'POST',
+//           headers: {
+//             Accept: 'application/json',
+//             'Content-Type': 'application/json',
+//           },
+//           body: JSON.stringify({
+//             to: snap.val().token,
+//             title: name,
+//             body: text,
+//           }),
+//         });
+
+//       }
+//     });
+//   }
+// }
 
 export function uploadImages(images) {
   return function (dispatch) {

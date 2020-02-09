@@ -5,7 +5,8 @@ let initialState = {
   user: {
     name: '',
     photoURL: '',
-    images: []
+    images: [],
+    chats: '',
   }
 }
 
