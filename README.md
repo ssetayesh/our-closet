@@ -2,9 +2,9 @@
 <h1 align="center">
     <img src="https://i.ibb.co/bR9j8DB/homepage.png" height="650"/>
   <br>
-    <i>Our Closet</i>
+    Our Closet
 </h1>
-
+<h3 align = "center"><img src = "https://cdn.pixabay.com/photo/2014/03/25/16/25/gerbera-297021_960_720.png" width=200/></h3>
 <h4 align="center">A Community for Thrifting App</h4>
 <p align="center">
   Recycle - Meet New People - Built with React Native
