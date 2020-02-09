@@ -7,7 +7,8 @@
 
 <h4 align="center">A Community for Thrifting App</h4>
 <p align="center">
-  Recycle - Meet New People - Built with React Native <br>
+  Recycle - Meet New People - Built with React Native
+    <br><br>
     <img src="https://i.ibb.co/n8FNqKW/ourclosetscreenshots.jpg" width="800"/>
 </p>
 
