@@ -1,6 +1,6 @@
 
 <h1 align="center">
-    <img src="https://i.ibb.co/bR9j8DB/homepage.png" height="600"/>
+    <img src="https://i.ibb.co/bR9j8DB/homepage.png" height="650"/>
   <br>
   Our Closet
 </h1>
