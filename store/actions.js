@@ -97,6 +97,20 @@ export function deleteImage(images, key) {
 //   }
 // }
 
+export function getCards(geocode) {
+  return function (dispatch) {
+    firebase.database().ref('cards').once('value', (snap) => {
+      var items = [];
+      snap.forEach((child) => {
+        item = child.val();
+        item.id = child.key;
+        items.push(item);
+      });
+      dispatch({ type: 'GET_CARDS', payload: items });
+    });
+  }
+}
+
 export function uploadImages(images) {
   return function (dispatch) {
     ImagePicker.launchImageLibraryAsync({
